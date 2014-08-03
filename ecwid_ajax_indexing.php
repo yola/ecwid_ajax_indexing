@@ -1039,6 +1039,8 @@ class EcwidProductApi {
     curl_setopt ($ch, CURLOPT_HTTPHEADER, $headers);
     curl_setopt ($ch, CURLOPT_HTTPGET, 1);
     curl_setopt ($ch, CURLOPT_RETURNTRANSFER, 1);
+    curl_setopt ($ch, CURLOPT_CONNECTTIMEOUT, 10) // timeout on connect
+    curl_setopt ($ch, CURLOPT_TIMEOUT, 10) // timeout on response
 
     $body = curl_exec ($ch);
     $errno = curl_errno ($ch);
